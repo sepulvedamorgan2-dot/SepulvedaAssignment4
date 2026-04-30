@@ -62,3 +62,29 @@
     }
 
 }
+@media (max-width: 800px) {
+    .header {
+        >section {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: .5rem;
+            img {
+                display: none;
+
+            }
+            section {
+                h2 {
+                    display: none;
+                    margin: 0;
+                    font-size: 25px;
+                }
+                p {
+                    display: none;
+                    margin: 0;
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+}

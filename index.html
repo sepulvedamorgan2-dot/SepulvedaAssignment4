@@ -5,10 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task Widget</title>
-    <link rel="stylesheet" href="src/css/styles.css">
-    <link rel="stylesheet" href="src/css/variables.css">
-    <link rel="stylesheet" href="src/css/headerhero.css">
-    <link rel="stylesheet" href="src/css/flex.css">
+    
+    <link rel="stylesheet" href="/src/css/styles.css">
+    <link rel="stylesheet" href="/src/css/variables.css">
+    <link rel="stylesheet" href="/src/css/headerhero.css">
+    <link rel="stylesheet" href="/src/css/flex.css">
 </head>
 
 <body>
@@ -16,7 +17,7 @@
         <section>
             <img src="/src/images/task.jpg" alt="">
             <section>
-                <h2>Task Manager Widgit</h2>
+                <h2>Task Manager Widget</h2>
                 <p>By: Morgan Sepulveda</p>
             </section>
             <div class="nav">
@@ -41,46 +42,61 @@
                             <header>
                                 <p>Add a task</p>
                             </header>
-                            <form action="">
+                            <form action="" id="addtaskform">
                                 <label for="category">Task Category</label>
                                 <select name="category" id="category">
                                     <option value="">Select</option>
-                                    <option value="chore">Chore</option>
-                                    <option value="mealprep">Meal Prep</option>
-                                    <option value="homework">Homework</option>
-                                    <option value="maintenance">Maintenance</option>
+                                    <option value="Chore">Chore</option>
+                                    <option value="Mealprep">Meal Prep</option>
+                                    <option value="Homework">Homework</option>
+                                    <option value="Maintenance">Maintenance</option>
                                 </select>
                                 <label for="title">Task Title</label>
                                 <input type="text" id="title">
-                                <label for="title">Task Description</label>
-                                <textarea name="title" id="title"></textarea>
+                                <label for="description">Task Description</label>
+                                <textarea name="title" id="description"></textarea>
+                                <button type="submit">Submit</button>
                             </form>
                         </div>
                     </section>
-                    <section class="col-1"></section>
+                    <!-- <section class="col-1"></section> -->
                 </section>
-                <section class="col-1">
+                <section class="col-3">
                     <div class="widget">
                         <header>
                             <p>Header</p>
                         </header>
-                        <form action="">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora voluptatum error nisi a
-                                suscipit enim minus, unde voluptates ab tenetur totam, nihil, aut magnam quas nam
-                                recusandae iste labore. Reprehenderit!
-                                Distinctio, ducimus autem? Excepturi, laboriosam. Animi expedita quos, unde ratione
-                                nobis at harum sunt, corrupti voluptatum voluptate perferendis consectetur officia a
-                                blanditiis ipsum cumque, minus provident! Tempore voluptate perspiciatis architecto.
-                                Corrupti, unde reiciendis. Repudiandae molestias, corrupti, impedit sint cumque
-                                excepturi iusto incidunt nam reprehenderit quis est adipisci error libero voluptas, illo
-                                dolore ea provident doloremque sit consectetur? Unde, quibusdam ullam!
-                                Voluptatibus, praesentium, nihil tempore voluptas quisquam recusandae ducimus dolorum,
-                                nisi deleniti voluptate voluptatem? Exercitationem dignissimos repellat animi eum autem,
-                                nostrum inventore quisquam consequuntur beatae sint distinctio vitae non odio accusamus.
-                                Necessitatibus labore nostrum velit minus nesciunt accusantium recusandae inventore
-                                exercitationem libero dolorum deserunt sed, voluptatibus, ab dicta repellendus obcaecati
-                                voluptatum porro quidem aliquid excepturi. Ducimus, amet. Exercitationem eos nostrum
-                                inventore.</p>
+                        <form action="" id="filterform">
+                            <section class="f">
+                                <em>Filters:</em>
+                            </section>
+                            <section class="row">
+                                <div class="filteroption">
+                                    <select name="filtercategory" id="filtercategory">
+                                        <option value="">All</option>
+                                        <option value="Chore">Chore</option>
+                                        <option value="Mealprep">Meal Prep</option>
+                                        <option value="Homework">Homework</option>
+                                        <option value="Maintenance">Maintenance</option>
+                                    </select>
+                                </div>
+                                <div class="filteroption">
+
+                                    <input type="text" id="filtertitle" placeholder="Filter by title">
+                                </div>
+                                <div class="filteroption">
+                                    <select name="filtercompleted" id="filtercompleted">
+                                        <option value="notcompleted">Not Completed</option>
+                                        <option value="completed">Completed</option>
+                                        <option value="all">All</option>
+
+                                    </select>
+                                </div>
+                                <div class="filteroption"></div>
+                            </section>
+                            <section id="outputarea">
+                                     
+                            </section>
                         </form>
                     </div>
                 </section>
