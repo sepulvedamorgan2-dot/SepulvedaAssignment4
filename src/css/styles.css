@@ -35,23 +35,27 @@ body {
 
     form {
         border: 1.5px solid var(--color-dark);
-        overflow-y:scroll;
+        overflow-y: scroll;
         height: 325px;
         background-color: white;
-        padding:  0 1rem;
-        section.f{
-            padding: .5rem 0 .25rem 0;;
-            em{
+        padding: 0 1rem;
+
+        section.f {
+            padding: .5rem 0 .25rem 0;
+            ;
+
+            em {
                 font-size: 14px;
             }
         }
+
         section.row {
             div.filteroption {
                 flex: 1;
                 /* background-color: pink; */
             }
         }
-       
+
         input,
         select,
         button {
@@ -62,17 +66,18 @@ body {
             font-size: 18px;
             text-indent: 5px;
         }
-        select{
+
+        select {
             text-indent: 1px;
         }
-        
-        
+
+
     }
 
 }
-#outputarea{
-    
-}
+
+
+#outputarea {}
 
 .addtaskwidget {
 
@@ -134,38 +139,85 @@ body {
 
 }
 
-.taskcard{
+.taskcard {
     border: 1.5px solid var(--color-dark);
     display: flex;
-    background-color: var(--color-accent);
+    background-color: var(--color-less-light);
     padding: .5rem;
-    img{
+
+    img {
         object-fit: cover;
-        width: 80px;
-        height: 80px;
+        min-width: 60px;
+        width: 60px;
+        height: 60px;
     }
-    div{
-        max-width: 80%;
-        margin-left: 1rem;
-        h3{
-            font-size: 23px;
+
+    div {
+        section {
+            display: flex;
+            max-width: 95%;
+            margin-left: .5rem;
+
+            h3 {
+                flex: 3;
+                font-size: 20px;
+            }
         }
-        p{
+
+        p {
+            margin-left: .5rem;
             font-size: 14px;
         }
     }
-    .icon{
-        
+
+    #test {
+        width: 100%;
+    }
+
+    #mediaShrink {
+        text-align: right;
+        flex: 1;
+    }
+
+    /* #test2 {
+        width: 100%;
+       
+    } */
+
+    section {
+        display: flex;
+    }
+
+    .icon {
+        p {
+            display: flex;
+            gap: 5px;
+        }
+
         margin: 0 auto;
-        margin-right: 1.5rem;
+        margin-right: 1rem;
         font-size: 1.5rem;
-        margin-top: 1.5rem;
-        color: var(--color-light);
-        &:hover{
+        margin-top: 1rem;
+
+        .completed {
+            color: blue;
+        }
+
+        .not-completed {
+            color: red;
+        }
+
+        i:hover {
             color: var(--color-dark);
             transition: 300ms;
         }
     }
+
+    i {
+        gap: 1rem;
+        font-size: 20px
+    }
+
     margin-bottom: 5px;
 }
 
@@ -174,53 +226,101 @@ body {
 
 
 @media (max-width: 800px) {
+
+    .addtaskwidget,
+    .widget {
+
+        padding: .5rem;
+
+
+    }
+
     .row {
         flex-direction: column;
     }
-    #mediaDel{
+
+
+
+    #mediaDel {
         display: none;
     }
-    .taskcard{
-        img{
+
+    .taskcard {
+
+        margin-bottom: 6px;
+
+        img {
             display: none;
         }
+
         /* #mediaDel{
             display: none;
         } */
-        div{
+        div {
             max-width: 100%;
             margin-left: 0;
+
+            section {
+                margin-left: 0rem;
+
+                h3 {
+                    font-size: 16px;
+                }
+            }
+
+            p {
+                margin-left: 0rem;
+                font-size: 15px;
+            }
         }
-        .row{
+
+        .row {
             width: 100%;
             flex-direction: column;
             gap: 0;
-            
-            h3{
-                flex-grow: 1;
-                font-size: 18px;
-            }
+
+
         }
-        #mediaShrink{
-            font-size: 15px;
+
+        #mediaShrink {
+            font-size: 12px;
             font-weight: 600;
-            text-align: left;
+            text-align: right;
         }
-        .icon{
+
+        .icon {
             margin-top: .5rem;
+            margin-right: .1rem;
+            font-size: medium;
         }
     }
 
-    .widget{
-        form{
-        input,
-        select,
-        button {
-            margin-bottom: -.2rem;
+    .widget {
+        
+        form {
+            height: 400px;
+            section.f {
+                padding-top: 0rem;
+            }
+
+            padding: .4rem .75rem .75rem .75rem;
+
+            input,
+            select,
+            button {
+                margin-top: 2px;
+                margin-bottom: -.4rem;
+                width: 100%;
+                height: 1.8rem;
+                font-size: 14px;
+                text-indent: 2px;
+            }
         }
+        margin-bottom: 100px;
     }
-    }
-    #test{
+
+    #test {
         width: 100%;
     }
+
 }

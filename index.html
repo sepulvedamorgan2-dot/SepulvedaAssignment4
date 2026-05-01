@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task Widget</title>
-    
+
     <link rel="stylesheet" href="/src/css/styles.css">
     <link rel="stylesheet" href="/src/css/variables.css">
     <link rel="stylesheet" href="/src/css/headerhero.css">
@@ -73,7 +73,7 @@
                             <section class="row">
                                 <div class="filteroption">
                                     <select name="filtercategory" id="filtercategory">
-                                        <option value="">All</option>
+                                        <option value="all">All Categories</option>
                                         <option value="Chore">Chore</option>
                                         <option value="Mealprep">Meal Prep</option>
                                         <option value="Homework">Homework</option>
@@ -86,8 +86,8 @@
                                 </div>
                                 <div class="filteroption">
                                     <select name="filtercompleted" id="filtercompleted">
-                                        <option value="notcompleted">Not Completed</option>
-                                        <option value="completed">Completed</option>
+                                        <option value="false">Not Completed</option>
+                                        <option value="true">Completed</option>
                                         <option value="all">All</option>
 
                                     </select>
@@ -95,7 +95,7 @@
                                 <div class="filteroption"></div>
                             </section>
                             <section id="outputarea">
-                                     
+                                
                             </section>
                         </form>
                     </div>
