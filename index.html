@@ -10,9 +10,13 @@
     <link rel="stylesheet" href="/src/css/variables.css">
     <link rel="stylesheet" href="/src/css/headerhero.css">
     <link rel="stylesheet" href="/src/css/flex.css">
+    <link rel="stylesheet" href="src/css/alert.css">
 </head>
 
 <body>
+    <section id="alert" class="alertholder">
+    <section class="alert"> <h2 id="alertmessage">Task Saved</h2></section>
+    </section>
     <header class="header">
         <section>
             <img src="/src/images/task.jpg" alt="">
@@ -23,7 +27,7 @@
             <div class="nav">
                 <ul>
                     <li>Home</li>
-                    <li>Home</li>
+                    <li id="alertCheck">Disable Alerts</li>
                     <li>Home</li>
                 </ul>
             </div>
@@ -34,13 +38,14 @@
     </section>
 
     <body>
+        
         <article class="site-width">
             <section class="row">
                 <section class="row col-1">
                     <section class="col-1">
                         <div class="addtaskwidget">
                             <header>
-                                <p>Add a task</p>
+                                <p>Add A Task</p>
                             </header>
                             <form action="" id="addtaskform">
                                 <label for="category">Task Category</label>

@@ -8,7 +8,7 @@
 }
 .header {
     background-color: var(--color-dark);
-    padding: .75rem;
+    padding: 0 .75rem .75rem .75rem;
 
     >section {
         display: flex;
@@ -93,6 +93,32 @@
                     font-size: 20px;
                 }
             }
+             div {
+            margin: 0 auto;
+            ul {
+                
+                list-style: none;
+                display: flex;
+                gap: 1.5rem;
+                li {
+                    /* background-color: var(--color-light); */
+                    font-size: 1rem;
+                    /* border-radius: 13px; */
+                    color: var(--color-light);
+                    padding: 1rem;
+                    margin-top: .2rem;
+                    
+                    &:hover{
+                        transition: 500ms;
+                        color: var(--color-light);
+                        background-color: var(--color-accent);
+                    }
+                }
+                
+            }
         }
+        }
+        
     }
+    
 }

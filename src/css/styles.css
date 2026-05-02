@@ -246,7 +246,8 @@ body {
     }
 
     .taskcard {
-
+        padding-top: .6rem;
+        padding-bottom: .6rem;
         margin-bottom: 6px;
 
         img {
@@ -324,3 +325,5 @@ body {
     }
 
 }
+
+

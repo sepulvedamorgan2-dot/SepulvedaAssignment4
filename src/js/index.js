@@ -1,3 +1,4 @@
+
 //self explanatory
 const renderAreaEle = document.getElementById('outputarea');
 //filtered
@@ -11,6 +12,14 @@ const adddescriptionEle = document.getElementById('description');
 //forms
 const filterFormEle = document.getElementById('filterform');
 const addFormEle = document.getElementById('addtaskform');
+//alert
+const alertEle = document.getElementById('alert')
+const alertMessageEle = document.getElementById('alertmessage')
+let alertCheck = true
+const alertCheckEle = document.getElementById('alertCheck')
+alertEle.style.opacity = 0;
+alertEle.style.display = 'none';
+
 
 let taskId = 0
 class Task {
@@ -36,6 +45,7 @@ const tasks = [
 ];
 
 addFormEle.addEventListener('submit', function (e) {
+
     e.preventDefault();
     if (addcategoryEle.value === '') {
         alert('Please Select a category')
@@ -44,14 +54,82 @@ addFormEle.addEventListener('submit', function (e) {
     const taskToAdd = new Task(addtitleEle.value, adddescriptionEle.value, addcategoryEle.value, false)
     tasks.push(taskToAdd);
     filterTasks();
+    alertAnim(.5)
+    alertMessageEle.textContent = "Task Saved Successfully"
     this.reset();
 
 })
+alertCheckEle.addEventListener('click', function() {
+    console.log('test')
+    if(alertCheckEle.textContent === 'Disable Alerts') {
+        alertCheckEle.textContent = 'Enable Alerts'
+    } else if (alertCheckEle.textContent === 'Enable Alerts') {
+        alertCheckEle.textContent = 'Disable Alerts'
+    }
+
+    alertCheck = !alertCheck;
+})
+
+function alertAnim(speed) {
+    if(!alertCheck) {return;}
+    alertEle.style.display = 'block';
+    alertEle.animate(
+        [
+
+            { opacity: (1) }
+        ],
+        {
+            duration: (1000 * speed),
+            iterations: 1,
+            easing: 'linear',
+            fill: "forwards"
+
+        }
+    )
+    setTimeout(() => {
+        alertEle.animate(
+            [
+                { opacity: 1 },
+                { opacity: 1 }
+
+            ],
+            {
+                duration: (3000 * speed),
+
+            }
+
+        )
+        setTimeout(() => {
+            alertEle.animate(
+                [
+                    { opacity: 1 },
+                    { opacity: 0 }
+                ],
+                {
+                    duration: (1000 * speed),
+                    fill: "forwards"
+                }
+
+            )
+
+
+
+            setTimeout(() => {
+                alertEle.style.display = 'none';
+            }, 1000);
+        }, 2000 * speed);
+    }, 2000 * speed);
+}
+
+
 
 filterCategoryEle.addEventListener('change', filterTasks);
 filtertitleEle.addEventListener('keydown', filterTasks);
 filtercompletedEle.addEventListener('change', filterTasks);
-
+filterFormEle.addEventListener('submit', function (e) {
+    e.preventDefault();
+    filterTasks();
+});
 
 function filterTasks() {
 
@@ -112,6 +190,8 @@ document.getElementById('outputarea').addEventListener('click', function (e) {
         if (confirm(`Are you sure you want to delete the task: ${tasks[pop].title}`)) {
             tasks.splice(pop, 1)
             filterTasks()
+            alertAnim(.3)
+            alertMessageEle.textContent = "Task Deleted"
             return
         }
 
@@ -124,12 +204,14 @@ document.getElementById('outputarea').addEventListener('click', function (e) {
             if (task.id === idd) {
                 task.isCompleted = true
                 filterTasks()
+                alertAnim(.3)
+                alertMessageEle.textContent = "Task Completed"
                 return true
 
             }
             return false
         })
-        
+
 
     }
     if (e.target.classList.contains('completed')) {
@@ -139,6 +221,8 @@ document.getElementById('outputarea').addEventListener('click', function (e) {
             if (task.id === idd) {
                 task.isCompleted = false
                 filterTasks()
+                alertAnim(.5)
+                alertMessageEle.textContent = "Task Incomplete"
                 return true
 
             }
