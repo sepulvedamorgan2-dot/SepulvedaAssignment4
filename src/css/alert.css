@@ -1,4 +1,5 @@
 .alertholder {
+    z-index: 100;
     position: fixed;
 
     .alert {
@@ -22,6 +23,8 @@
 
 @media (max-width: 800px) {
     .alertholder {
+
+        z-index: 100;
         .alert {
 
             h2 {
