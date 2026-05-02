@@ -1,4 +1,5 @@
-
+import { returnLocalStorage, setLocalStorage } from './localstorage.js'
+import { alertAnim } from './alert.js'
 //self explanatory
 const renderAreaEle = document.getElementById('outputarea');
 //filtered
@@ -13,12 +14,7 @@ const adddescriptionEle = document.getElementById('description');
 const filterFormEle = document.getElementById('filterform');
 const addFormEle = document.getElementById('addtaskform');
 //alert
-const alertEle = document.getElementById('alert')
-const alertMessageEle = document.getElementById('alertmessage')
-let alertCheck = true
-const alertCheckEle = document.getElementById('alertCheck')
-alertEle.style.opacity = 0;
-alertEle.style.display = 'none';
+
 
 
 let taskId = 0
@@ -31,18 +27,7 @@ class Task {
         this.isCompleted = isCompleted
     }
 }
-const tasks = [
-    new Task('Clean kitchen', 'Wash dishes and wipe counters', 'Chore', false),
-    new Task('Laundry', 'Wash, dry, and fold clothes', 'Chore', true),
-    new Task('Take out trash', 'Empty bins and replace liners', 'Chore', false),
-    new Task('Prep lunches', 'Make meals for the week', 'Mealprep', false),
-    new Task('Cook dinner', 'Prepare a balanced meal', 'Mealprep', true),
-    new Task('Freeze snacks', 'Portion out snacks for later', 'Mealprep', false),
-    new Task('Math assignment', 'Finish chapter 5 problems', 'Homework', true),
-    new Task('Read history', 'Review notes for quiz', 'Homework', false),
-    new Task('Change air filter', 'Replace HVAC filter', 'Maintenance', false),
-    new Task('Check smoke detectors', 'Test batteries and functionality', 'Maintenance', false)
-];
+const tasks = returnLocalStorage();
 
 addFormEle.addEventListener('submit', function (e) {
 
@@ -53,73 +38,12 @@ addFormEle.addEventListener('submit', function (e) {
     }
     const taskToAdd = new Task(addtitleEle.value, adddescriptionEle.value, addcategoryEle.value, false)
     tasks.push(taskToAdd);
+    setLocalStorage(tasks);
     filterTasks();
-    alertAnim(.5)
-    alertMessageEle.textContent = "Task Saved Successfully"
+    alertAnim(.5, "Task Added Successfully")
     this.reset();
 
 })
-alertCheckEle.addEventListener('click', function() {
-    console.log('test')
-    if(alertCheckEle.textContent === 'Disable Alerts') {
-        alertCheckEle.textContent = 'Enable Alerts'
-    } else if (alertCheckEle.textContent === 'Enable Alerts') {
-        alertCheckEle.textContent = 'Disable Alerts'
-    }
-
-    alertCheck = !alertCheck;
-})
-
-function alertAnim(speed) {
-    if(!alertCheck) {return;}
-    alertEle.style.display = 'block';
-    alertEle.animate(
-        [
-
-            { opacity: (1) }
-        ],
-        {
-            duration: (1000 * speed),
-            iterations: 1,
-            easing: 'linear',
-            fill: "forwards"
-
-        }
-    )
-    setTimeout(() => {
-        alertEle.animate(
-            [
-                { opacity: 1 },
-                { opacity: 1 }
-
-            ],
-            {
-                duration: (3000 * speed),
-
-            }
-
-        )
-        setTimeout(() => {
-            alertEle.animate(
-                [
-                    { opacity: 1 },
-                    { opacity: 0 }
-                ],
-                {
-                    duration: (1000 * speed),
-                    fill: "forwards"
-                }
-
-            )
-
-
-
-            setTimeout(() => {
-                alertEle.style.display = 'none';
-            }, 1000);
-        }, 2000 * speed);
-    }, 2000 * speed);
-}
 
 
 
@@ -189,9 +113,9 @@ document.getElementById('outputarea').addEventListener('click', function (e) {
         })
         if (confirm(`Are you sure you want to delete the task: ${tasks[pop].title}`)) {
             tasks.splice(pop, 1)
+            setLocalStorage(tasks);
             filterTasks()
-            alertAnim(.3)
-            alertMessageEle.textContent = "Task Deleted"
+            alertAnim(.3, "Task Deleted")
             return
         }
 
@@ -203,9 +127,9 @@ document.getElementById('outputarea').addEventListener('click', function (e) {
 
             if (task.id === idd) {
                 task.isCompleted = true
+                setLocalStorage(tasks);
                 filterTasks()
-                alertAnim(.3)
-                alertMessageEle.textContent = "Task Completed"
+                alertAnim(.3, "Task Completed")
                 return true
 
             }
@@ -220,9 +144,10 @@ document.getElementById('outputarea').addEventListener('click', function (e) {
 
             if (task.id === idd) {
                 task.isCompleted = false
+                setLocalStorage(tasks);
                 filterTasks()
-                alertAnim(.5)
-                alertMessageEle.textContent = "Task Incomplete"
+                alertAnim(.5, "Task Marked Incomplete")
+
                 return true
 
             }
