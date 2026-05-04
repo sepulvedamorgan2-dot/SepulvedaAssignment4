@@ -1,3 +1,4 @@
+
 const alertEle = document.getElementById('alert')
 const alertMessageEle = document.getElementById('alertmessage')
 let alertCheck = true
@@ -5,9 +6,9 @@ const alertCheckEle = document.getElementById('alertCheck')
 alertEle.style.opacity = 0;
 alertEle.style.display = 'none';
 
-alertCheckEle.addEventListener('click', function() {
+alertCheckEle.addEventListener('click', function () {
     console.log('test')
-    if(alertCheckEle.textContent === 'Disable Alerts') {
+    if (alertCheckEle.textContent === 'Disable Alerts') {
         alertCheckEle.textContent = 'Enable Alerts'
     } else if (alertCheckEle.textContent === 'Enable Alerts') {
         alertCheckEle.textContent = 'Disable Alerts'
@@ -17,53 +18,69 @@ alertCheckEle.addEventListener('click', function() {
 })
 
 export function alertAnim(speed, alertMessage) {
-    if(!alertCheck) {return;}
+    if (!alertCheck) {
+        return;
+    } 
     alertMessageEle.textContent = alertMessage;
     alertEle.style.display = 'block';
-    alertEle.animate(
-        [
-
-            { opacity: (1) }
-        ],
-        {
-            duration: (1000 * speed),
-            iterations: 1,
-            easing: 'linear',
-            fill: "forwards"
-
-        }
-    )
-    setTimeout(() => {
-        alertEle.animate(
-            [
-                { opacity: 1 },
-                { opacity: 1 }
-
-            ],
-            {
-                duration: (3000 * speed),
-
-            }
-
-        )
-        setTimeout(() => {
-            alertEle.animate(
-                [
-                    { opacity: 1 },
-                    { opacity: 0 }
-                ],
-                {
-                    duration: (1000 * speed),
-                    fill: "forwards"
-                }
-
-            )
-
-
-
-            setTimeout(() => {
-                alertEle.style.display = 'none';
-            }, 1000);
-        }, 2000 * speed);
-    }, 2000 * speed);
+    const duration = 5000 * speed; 
+    alertEle.animate([
+        { opacity: 0, offset: 0 },   
+        { opacity: 1, offset: 0.2 }, 
+        { opacity: 1, offset: 0.8 }, 
+        { opacity: 0, offset: 1 }   
+    ], {
+        duration: duration,
+        fill: "forwards"
+    }).finished.then(() => {
+        alertEle.style.display = 'none';
+    });
 }
+
+
+
+//         [
+
+//             { opacity: (1) }
+//         ],
+//         {
+//             duration: (1000 * speed),
+//             iterations: 1,
+//             easing: 'linear',
+//             fill: "forwards"
+
+//         }
+//     )
+//     setTimeout(() => {
+//         alertEle.animate(
+//             [
+//                 { opacity: 1 },
+//                 { opacity: 1 }
+
+//             ],
+//             {
+//                 duration: (3000 * speed),
+
+//             }
+
+//         )
+//         setTimeout(() => {
+//             alertEle.animate(
+//                 [
+//                     { opacity: 1 },
+//                     { opacity: 0 }
+//                 ],
+//                 {
+//                     duration: (1000 * speed),
+//                     fill: "forwards"
+//                 }
+
+//             )
+
+
+
+//             setTimeout(() => {
+//                 alertEle.style.display = 'none';
+//             }, 1000);
+//         }, 2000 * speed);
+//     }, 2000 * speed);

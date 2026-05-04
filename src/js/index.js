@@ -19,7 +19,7 @@ const demoListEle = document.getElementById('demoList');
 
 
 let taskId = 0
-class Task {
+export class Task {
     constructor(title, description, category, isCompleted = false) {
         this.id = Number(++taskId)
         this.title = title
@@ -28,7 +28,7 @@ class Task {
         this.isCompleted = isCompleted
     }
 }
-let tasks = returnLocalStorage();
+let tasks = returnLocalStorage('tasks');
 
 addFormEle.addEventListener('submit', function (e) {
 
@@ -39,7 +39,7 @@ addFormEle.addEventListener('submit', function (e) {
     }
     const taskToAdd = new Task(addtitleEle.value, adddescriptionEle.value, addcategoryEle.value, false)
     tasks.push(taskToAdd);
-    setLocalStorage(tasks);
+    setLocalStorage(tasks, 'tasks');
     filterTasks();
     alertAnim(.5, "Task Added Successfully")
     this.reset();
@@ -114,7 +114,7 @@ document.getElementById('outputarea').addEventListener('click', function (e) {
         })
         if (confirm(`Are you sure you want to delete the task: ${tasks[pop].title}`)) {
             tasks.splice(pop, 1)
-            setLocalStorage(tasks);
+            setLocalStorage(tasks, 'tasks');
             filterTasks()
             alertAnim(.3, "Task Deleted")
             return
@@ -128,7 +128,7 @@ document.getElementById('outputarea').addEventListener('click', function (e) {
 
             if (task.id === idd) {
                 task.isCompleted = true
-                setLocalStorage(tasks);
+                setLocalStorage(tasks, 'tasks');
                 filterTasks()
                 alertAnim(.3, "Task Completed")
                 return true
@@ -145,7 +145,7 @@ document.getElementById('outputarea').addEventListener('click', function (e) {
 
             if (task.id === idd) {
                 task.isCompleted = false
-                setLocalStorage(tasks);
+                setLocalStorage(tasks, 'tasks');
                 filterTasks()
                 alertAnim(.5, "Task Marked Incomplete")
 

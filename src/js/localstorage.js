@@ -1,31 +1,18 @@
+import{Task} from './index.js';
 let taskId = 0;
-class Task {
-    constructor(title, description, category, isCompleted = false) {
-        this.id = Number(++taskId)
-        this.title = title
-        this.description = description
-        this.category = category
-        this.isCompleted = isCompleted
-    }
-}
 
-export function returnLocalStorage() {
+export function returnLocalStorage(keyString) {
     let tasks;
-    if (localStorage.getItem('tasks') === null) {
+    if (localStorage.getItem(keyString) === null) {
         tasks = [
             
         ];
     } else {
-        tasks = JSON.parse(localStorage.getItem('tasks'));
+        tasks = JSON.parse(localStorage.getItem(keyString));
     }
     return tasks;
 }
-export function setLocalStorage(tasks) {
-    localStorage.setItem('tasks', JSON.stringify(tasks));
+export function setLocalStorage(tasks, keyString) {
+    localStorage.setItem(keyString, JSON.stringify(tasks));
 }
 
-
-
-
-
-console.log(returnLocalStorage());
