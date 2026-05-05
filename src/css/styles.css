@@ -131,7 +131,7 @@ body {
         text-align: center;
         font-size: 24px;
         color: var(--color-light);
-        background-color: var(--color-dark);
+        background-color: var(--color-accent);
     }
 
     form {
@@ -300,9 +300,7 @@ body {
         padding: 0rem;
     }
 
-    .addtaskwidget {
-        border-top: 2px solid black
-    }
+    
 
     .f,
     .f2 {
@@ -322,7 +320,7 @@ body {
         height: auto;
         /* margin-top: 1rem; */
         padding: 0rem;
-        margin-top: 1rem;
+        
 
         form {
             padding: .7rem;
@@ -414,9 +412,10 @@ body {
     }
 
     .widget {
-
+        margin-top: 0rem;
+        max-width: 800px;
         form {
-            height: 800px;
+            
             padding: .4rem .75rem .75rem .75rem;
 
             input,

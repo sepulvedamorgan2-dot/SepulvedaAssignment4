@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/src/css/headerhero.css">
     <link rel="stylesheet" href="/src/css/flex.css">
     <link rel="stylesheet" href="src/css/alert.css">
+    <link rel="stylesheet" href="src/css/sidebar.css">
 </head>
 
 <body>
@@ -42,11 +43,16 @@
     <body>
 
         <article class="site-width">
-            <section class="row" style="gap: 0;" >
-                <section class="row col-1">
+            <section class="row" style="gap: 0;">
+                <section class="sidebar" id="addtasksidebar">
+                    <p><i class="bi bi-caret-right-fill"></i></p>
+                    <p>Add Task</p>
+                </section>
+                <section class="row col-1" id="addtask">
                     <section class="col-1">
                         <div class="addtaskwidget">
-                            <header>
+                            <header class="headercolapse">
+                                <p id="sidebaricon"><i class="bi bi-caret-left-fill"></i></p>
                                 <p>Add A Task</p>
                             </header>
                             <form action="" id="addtaskform">
@@ -109,7 +115,7 @@
                                 </div>
                             </section>
                             <section id="outputarea">
-                                
+
                             </section>
                         </form>
                     </div>
@@ -124,6 +130,7 @@
     <script type="module" src="/src/js/index.js"></script>
     <script type="module" src="/src/js/alert.js"></script>
     <script type="module" src="/src/js/localstorage.js"></script>
+    <script src="/src/js/sidebar.js"></script>
 </body>
 
 </html>

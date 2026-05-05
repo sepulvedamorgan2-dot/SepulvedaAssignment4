@@ -109,7 +109,7 @@ function renderTask(task) {
 document.getElementById('outputarea').addEventListener('click', function (e) {
     const idd = Number(e.target.closest('.taskcard').dataset.id)
     console.log(idd)
-    if (e.target.classList.contains('bi-trash3-fill')) {
+    if (e.target.classList.contains('bi-trash3')) {
         console.log('no')
         const pop = tasks.findIndex(function (task) {
             if (task.id === idd) {
@@ -181,7 +181,17 @@ demoListEle.addEventListener('click', function (e) {
     new Task('Grocery shopping', 'Buy ingredients for the week', 'Chore', false),
     new Task('Pay bills', 'Settle monthly utilities and rent', 'Maintenance', true),
     new Task('Car maintenance', 'Schedule oil change and tire rotation', 'Maintenance', false),
-    new Task('Organize closet', 'Sort clothes and donate unused items', 'Chore', false)]
+    new Task('Organize closet', 'Sort clothes and donate unused items', 'Chore', false),
+    new Task('Vacuum living room', 'Clean carpets and upholstery', 'Chore', false),
+    new Task('Bake meal prep bowls', 'Prepare balanced meals for busy days', 'Mealprep', false),
+    new Task('Study science', 'Review chapters and complete notes', 'Homework', false),
+    new Task('Test home alarm', 'Ensure alarm system is functioning', 'Maintenance', false),
+    new Task('Fold laundry', 'Sort and store clean clothes', 'Chore', true),
+    new Task('Cook breakfast for week', 'Batch cook eggs and oatmeal', 'Mealprep', true),
+    new Task('Complete project report', 'Finish writing and proofread', 'Homework', false),
+    new Task('Replace light bulbs', 'Swap out burned-out bulbs', 'Maintenance', false),
+    new Task('Organize pantry', 'Wipe shelves and arrange items', 'Chore', false),
+    new Task('Prep smoothie bags', 'Assemble fruit and veggie portions', 'Mealprep', false)]
 
     filterTasks()
 })
