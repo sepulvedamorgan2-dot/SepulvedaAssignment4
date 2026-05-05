@@ -85,7 +85,7 @@ function filterTasks() {
 function renderTask(task) {
     const eleToAdd = document.createElement('div')
     eleToAdd.innerHTML =
-        `<div data-id="${task.id}" class="taskcard">
+        `<div data-id="${task.id}" class="taskcard ${task.isCompleted ? 'greyedout' : ''}">
             <img src="/src/images/${task.category}.jpg" alt="">
                 <div id="test">
                     <section id="test2">
@@ -95,7 +95,7 @@ function renderTask(task) {
                     <p>${task.description}</p>
                 </div>
                 <section class="icon">
-                    <p><i class="bi bi-check-square-fill ${task.isCompleted ? 'completed' : 'not-completed'}"></i><i class="bi bi-trash3-fill"></i> </p>
+                    <p><i class="bi bi-check-square${task.isCompleted ? '-fill' : ''} ${task.isCompleted ? 'completed' : 'not-completed'}"></i><i class="bi bi-trash3 red"></i> </p>
                 </section>
         </div>`
     renderAreaEle.innerHTML += eleToAdd.innerHTML;
@@ -172,7 +172,12 @@ demoListEle.addEventListener('click', function (e) {
     new Task('Read history', 'Review notes for quiz', 'Homework', false),
     new Task('Change air filter', 'Replace HVAC filter', 'Maintenance', false),
     new Task('Check smoke detectors', 'Test batteries and functionality', 'Maintenance', false),
-    new Task('Test LocalStorage', 'Sort and clean storage area', 'Maintenance', true)]
+    new Task('Clean Storage', 'Sort and clean storage area', 'Maintenance', true),
+    new Task('Grocery shopping', 'Buy ingredients for the week', 'Chore', false),
+    new Task('Pay bills', 'Settle monthly utilities and rent', 'Maintenance', true),
+    new Task('Car maintenance', 'Schedule oil change and tire rotation', 'Maintenance', false),
+    new Task('Organize closet', 'Sort clothes and donate unused items', 'Chore', false)]
+
     filterTasks()
 })
 filterTasks()

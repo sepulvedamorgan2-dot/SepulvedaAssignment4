@@ -7,10 +7,11 @@
     }
 }
 .header {
+    z-index: 1000;
     position: sticky;
     top: 0;
     background-color: var(--color-dark);
-    padding: .75rem .75rem .75rem .75rem;
+    padding: .6rem .5rem .6rem .5rem;
 
     >section {
         display: flex;
@@ -18,8 +19,8 @@
         /* flex-wrap: wrap; */
         img {
             margin-left: 2rem;
-            width: 70px;
-            height: 70px;
+            width: 50px;
+            height: 50px;
         }
 
         section {
@@ -27,7 +28,7 @@
                 
                 margin: 0rem 0 0 1rem;
                 color: var(--color-light);
-                font-size:clamp(1rem, 3.5vw, 2.5rem);
+                font-size:clamp(1rem, 3.5vw, 1.4rem);
             }
 
             p {
@@ -46,11 +47,12 @@
                 gap: 1.5rem;
                 li {
                     /* background-color: var(--color-light); */
-                    font-size: 1.5rem;
+                    font-size: 17px;
                     /* border-radius: 13px; */
+                    margin-top: .1rem;
                     color: var(--color-light);
-                    padding: 1rem;
-                    margin-top: .2rem;
+                    padding: .8rem;
+                    
                     
                     &:hover{
                         transition: 500ms;
