@@ -57,7 +57,12 @@ filterFormEle.addEventListener('submit', function (e) {
 });
 
 function filterTasks() {
-
+    tasks.sort(function(a, b){
+    if(a.isCompleted && !b.isCompleted){
+        return 1
+    }
+    return -1
+})
     renderAreaEle.innerHTML = '';
     const filterCategory = filterCategoryEle.value;
     const filterTitle = filtertitleEle.value;
@@ -85,7 +90,7 @@ function filterTasks() {
 function renderTask(task) {
     const eleToAdd = document.createElement('div')
     eleToAdd.innerHTML =
-        `<div data-id="${task.id}" class="taskcard ${task.isCompleted ? 'greyedout' : ''}">
+        `<div data-id="${task.id}" class="taskcard ${task.isCompleted ? 'done greyedout' : 'not-done '}">
             <img src="/src/images/${task.category}.jpg" alt="">
                 <div id="test">
                     <section id="test2">

@@ -68,12 +68,7 @@
 }
 @media (max-width: 800px) {
     .hero-image{
-        height: 200px;
-        img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
+        display: none;
     }
     .header {
         padding: 0rem .75rem .75rem .75rem;
